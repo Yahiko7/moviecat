@@ -1,0 +1,51 @@
+<div class="list-group">
+	<a href="#" ng-repeat="item in movie_list" class="list-group-item">
+		<div class="media">
+			<div class="media-left media-middle" href="#">
+				<img ng-src="{{item.images.small}}" alt="{{item.title}}">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">{{item.title}}</h4>
+				<p>
+					导演：
+					<span ng-repeat="director in item.directors">{{director.name}}
+						<span ng-if="!$last">、</span>
+					</span>
+				</p>
+				<p>
+					类型：
+					<span>{{item.genres.join('、')}}</span>
+				</p>
+			</div>
+		</div>
+	</a>
+</div>
+<div ng-show="!loading">
+	<p>总共：{{totalPages}}页, 总的记录数：{{totalCount}}</p>
+	<nav>
+		<ul class="pager">
+			<li ng-class="{disabled:currentPage <= 1}">
+				<a ng-click="go(currentPage-1)" >Previous</a>
+			</li>
+			<li ng-class="{disabled:currentPage >= totalPages}">
+				<a ng-click="go(currentPage + 1)" >Next</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+<div class=" mask " ng-show="loading ">
+	<div class="sk-fading-circle ">
+		<div class="sk-circle1 sk-circle "></div>
+		<div class="sk-circle2 sk-circle "></div>
+		<div class="sk-circle3 sk-circle "></div>
+		<div class="sk-circle4 sk-circle "></div>
+		<div class="sk-circle5 sk-circle "></div>
+		<div class="sk-circle6 sk-circle "></div>
+		<div class="sk-circle7 sk-circle "></div>
+		<div class="sk-circle8 sk-circle "></div>
+		<div class="sk-circle9 sk-circle "></div>
+		<div class="sk-circle10 sk-circle "></div>
+		<div class="sk-circle11 sk-circle "></div>
+		<div class="sk-circle12 sk-circle "></div>
+	</div>
+</div>
