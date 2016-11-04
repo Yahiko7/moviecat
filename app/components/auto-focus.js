@@ -13,10 +13,8 @@
 				restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
 				link: function($scope, iElm, iAttrs, controller) {
 					$scope.$location = $location;
-					
 					$scope.$watch('$location.path()', function(now) {
 						var path = $location.path(); // /coming_soon/1
-						console.log($location.path());
 						var aLink = iElm.children().attr('href');
 						var type = aLink.replace(/#(\/.+?)\/\d+/, '$1'); // /coming_soon
 						if(path.startsWith(type)) {
